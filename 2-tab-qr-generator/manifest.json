@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "Tab to QR Code Generator",
+  "version": "1.0.0",
+  "description": "Generate instant QR codes for your current active tab or any text. Download PNG or copy in 1-click.",
+  "icons": {
+    "16": "icons/icon-16.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
+    },
+    "default_title": "Tab to QR Code Generator"
+  },
+  "permissions": [
+    "activeTab"
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "tab-qr-generator@craftrex.com",
+      "strict_min_version": "109.0",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    }
+  }
+}

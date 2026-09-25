@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tab QR Generator</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="card">
+    <header class="header">
+      <div class="brand">
+        <img src="icons/icon-48.png" alt="Logo" class="logo">
+        <div>
+          <h1>Tab QR Generator</h1>
+          <p class="subtitle">Instant QR for Active Tab</p>
+        </div>
+      </div>
+      <span class="badge">Offline</span>
+    </header>
+
+    <div class="qr-wrapper">
+      <div id="qrcode" class="qr-container"></div>
+      <div id="loading" class="loading hidden">Generating...</div>
+    </div>
+
+    <div class="input-group">
+      <label for="qrInput">Content / URL</label>
+      <textarea id="qrInput" rows="2" placeholder="URL or text to encode..."></textarea>
+      <div class="char-count"><span id="charCount">0</span> chars</div>
+    </div>
+
+    <div class="actions">
+      <button id="downloadBtn" class="btn btn-primary" title="Download QR as PNG image">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+        Download PNG
+      </button>
+      <button id="copyBtn" class="btn btn-secondary" title="Copy QR image to clipboard">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+        Copy Image
+      </button>
+    </div>
+
+    <div id="status" class="status hidden"></div>
+
+    <footer class="footer">
+      <span>Need custom colors & logos?</span>
+      <a href="https://qr-code-scanner.cc/qr-code-generator" target="_blank" id="webToolLink">
+        Advanced Generator &rarr;
+      </a>
+    </footer>
+  </div>
+
+  <script src="lib/qrcode.min.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

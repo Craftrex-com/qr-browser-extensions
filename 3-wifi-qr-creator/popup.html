@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WiFi QR Code Creator</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="card">
+    <header class="header">
+      <div class="brand">
+        <img src="icons/icon-48.png" alt="Logo" class="logo">
+        <div>
+          <h1>WiFi QR Creator</h1>
+          <p class="subtitle">Quick Connect for Guests</p>
+        </div>
+      </div>
+      <span class="badge">Safe</span>
+    </header>
+
+    <div class="form-container">
+      <div class="input-group">
+        <label for="ssid">Network Name (SSID)</label>
+        <input type="text" id="ssid" placeholder="e.g. Office_WiFi_5G" autocomplete="off" />
+      </div>
+
+      <div class="input-group">
+        <label for="password">Password</label>
+        <div class="password-wrapper">
+          <input type="password" id="password" placeholder="Enter WiFi password" autocomplete="off" />
+          <button type="button" id="togglePass" class="toggle-pass" title="Show/Hide Password">
+            <svg id="eyeIcon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-group flex-1">
+          <label for="security">Security</label>
+          <select id="security">
+            <option value="WPA" selected>WPA / WPA2 / WPA3</option>
+            <option value="WEP">WEP</option>
+            <option value="nopass">None (Open)</option>
+          </select>
+        </div>
+        <div class="input-group checkbox-group">
+          <label class="checkbox-label" for="hidden">
+            <input type="checkbox" id="hidden" />
+            <span>Hidden SSID</span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="qr-wrapper">
+      <div id="qrcode" class="qr-container"></div>
+      <div id="qrPrompt" class="qr-prompt">Enter network name to generate QR</div>
+    </div>
+
+    <div class="actions">
+      <button id="downloadBtn" class="btn btn-primary" title="Download QR as PNG image" disabled>
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+        Download PNG
+      </button>
+      <button id="printBtn" class="btn btn-secondary" title="Print WiFi Sign" disabled>
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+        Print Card
+      </button>
+    </div>
+
+    <div id="status" class="status hidden"></div>
+
+    <footer class="footer">
+      <span>Scan or verify WiFi QR codes?</span>
+      <a href="https://qr-code-scanner.cc/wifi-qr-code-scanner" target="_blank" id="webToolLink">
+        Online WiFi Tool &rarr;
+      </a>
+    </footer>
+  </div>
+
+  <script src="lib/qrcode.min.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

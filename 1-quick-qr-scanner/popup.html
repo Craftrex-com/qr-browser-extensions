@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quick QR Scanner</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="brand">
+        <img src="icons/icon-48.png" alt="Logo" class="logo">
+        <div>
+          <h1>Quick QR Scanner</h1>
+          <p class="subtitle">Decode QR from image or screenshot</p>
+        </div>
+      </div>
+    </header>
+
+    <div id="dropZone" class="dropZone">
+      <div class="dropIcon">📷</div>
+      <p class="dropText">Drag & drop QR image here</p>
+      <p class="dropSubtext">or <strong>Ctrl + V</strong> to paste screenshot</p>
+      <button type="button" id="browseBtn" class="browseBtn">Browse Image</button>
+      <input type="file" id="fileInput" accept="image/*" style="display:none;">
+    </div>
+
+    <div id="resultCard" class="resultCard" style="display:none;">
+      <div class="resultHeader">
+        <span class="badge">Decoded QR Result</span>
+        <button type="button" id="clearBtn" class="clearBtn" title="Clear">✕</button>
+      </div>
+      <textarea id="resultText" class="resultText" readonly rows="3"></textarea>
+      <div class="resultActions">
+        <button type="button" id="copyBtn" class="actionBtn primaryBtn">📋 Copy</button>
+        <button type="button" id="openBtn" class="actionBtn secondaryBtn" style="display:none;">🔗 Open URL</button>
+      </div>
+    </div>
+
+    <div id="statusMessage" class="statusMessage" style="display:none;"></div>
+
+    <footer class="footer">
+      <a href="https://qr-code-scanner.cc/" target="_blank" rel="noopener" class="footerLink">
+        🌐 Open Full Web Scanner & Tools →
+      </a>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
